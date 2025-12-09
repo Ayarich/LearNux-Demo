@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    container_name: cmdpanel_web
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_SETTINGS_MODULE: cmdpanel.settings
+      # Keep DEBUG=True for dev; set False in production
+      # You can also add SECRET_KEY here if you want
+    volumes:
+      - .:/app  # hot-reload your code in dev
+    # Uncomment if you want the container to restart automatically
+    # restart: unless-stopped
